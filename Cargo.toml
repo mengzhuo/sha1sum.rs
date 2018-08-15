@@ -6,6 +6,7 @@ homepage = "https://github.com/mengzhuo/sha1sum.rs"
 repository = "https://github.com/mengzhuo/sha1sum.rs"
 categories = ["command-line-utilities", "cryptography"]
 license  = "MIT"
+description = "Print or check SHA1 (160-bit) checksums"
 
 [dependencies]
 rust-crypto = "^0.2"
