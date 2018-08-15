@@ -5,6 +5,9 @@ use std::{env,fs,io,string,process};
 use crypto::sha1::Sha1;
 use crypto::digest::Digest;
 
+static QUIET_HELP: &'static str = "sha1sum: the --quiet option is meaningful only when verifying checksums
+Try 'sha1sum --help' for more information.";
+
 static HELP_MSG: &'static str = "Usage: sha1sum [OPTION]... [FILE]...
 Print or check SHA1 (160-bit) checksums.
 
@@ -12,6 +15,10 @@ With no FILE, or when FILE is -, read standard input.
 
         --help      display this help and exit
     -c, --check     read SHA1 sums from the FILEs and check them
+
+The following five options are useful only when verifying checksums:
+
+    --quiet          don't print OK for each successfully verified file
 ";
 
 fn main() {
@@ -39,6 +46,11 @@ fn main() {
     if check && !files.is_empty(){
         check_files(files, quiet);
         return;
+    }
+
+    if quiet {
+        eprintln!("{}", QUIET_HELP);
+        process::exit(1);
     }
 
     if files.is_empty() {
