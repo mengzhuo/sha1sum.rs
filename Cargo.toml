@@ -1,6 +1,6 @@
 [package]
 name = "sha1sum"
-version = "0.2.0"
+version = "1.0.0"
 authors = ["Meng Zhuo <mengzhuo1203@gmail.com>"]
 homepage = "https://github.com/mengzhuo/sha1sum.rs"
 repository = "https://github.com/mengzhuo/sha1sum.rs"
