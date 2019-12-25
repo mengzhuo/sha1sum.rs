@@ -127,7 +127,7 @@ fn check_files(files: Vec<String>, quiet: bool) {
 fn sha1sum(fp: &String) -> Result<String, io::Error> {
     let mut hasher = Sha1::new();
 
-    let mut f:Box<io::Read> = match fp.as_ref() {
+    let mut f:Box<dyn io::Read> = match fp.as_ref() {
         "-" => Box::new(io::stdin()),
         _ => {
             let fd = fs::File::open(fp)?;
